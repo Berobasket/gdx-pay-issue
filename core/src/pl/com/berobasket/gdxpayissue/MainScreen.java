@@ -7,7 +7,6 @@ import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
-import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.utils.viewport.StretchViewport;
 
 public class MainScreen implements Screen {
@@ -16,9 +15,7 @@ public class MainScreen implements Screen {
 	private Label _lInfo1;
 	private Stage _stage;
 	
-	private TextButton _tbBuyItem1;
-	private TextButton _tbBuyItem2;
-
+	private TextButton _tbBuyItem1;	
 	
 	public MainScreen(MyGdxGame game) {
 		_game = game;
@@ -29,41 +26,29 @@ public class MainScreen implements Screen {
         
         String message = "Purchasing on Android - every purchase is ok\r\n"
         		+ "Purchasing on iOS - every other purchase is NOT ok\r\n" 
-        		+ "1. Buy consumable item no. 1 or item no. 2 - it's ok \r\n"
-        		+ "2. Buy consumable item no. 1 or item no. 2 - it's NOT ok \r\n"
-        		+ "3. Buy consumable item no. 1 or item no. 2 - it's ok \r\n"
-        		+ "4. Buy consumable item no. 1 or item no. 2 - it's NOT ok \r\n";
+        		+ "1. Buy consumable item - it's ok \r\n"
+        		+ "2. Buy consumable item - it's NOT ok \r\n"
+        		+ "3. Buy consumable item - it's ok \r\n"
+        		+ "4. Buy consumable item - it's NOT ok \r\n";
 		
 		_lInfo1 = new Label(message, _game.getSkin());
 		_lInfo1.setPosition(300, 400);
 		
-		_tbBuyItem1 = new TextButton("Buy item 1", _game.getSkin());
+		_tbBuyItem1 = new TextButton("Buy item", _game.getSkin());
 		_tbBuyItem1.setBounds(300, 100, 100, 50);		
-		_tbBuyItem1.addListener( new ClickListener() 
+		_tbBuyItem1.addListener( new DefaultButtonListener() 
         {
             @Override
             public void touchUp( InputEvent event, float x, float y, int pointer, int button )
             {
-            	_game.getActionResolver().showToast("Buying item no.1");
+            	super.touchUp(event, x, y, pointer, button);
+            	_game.getActionResolver().showToast("Buying item");
                 _game.getInAppPurchaseSystem().requestPurchase(InAppPurchaseSystem.SKU_CONSUMABLE_1);
             }
         } );		
-		
-		_tbBuyItem2 = new TextButton("Buy item 2", _game.getSkin());
-		_tbBuyItem2.setBounds(300, 200, 100, 50);		
-		_tbBuyItem2.addListener( new ClickListener() 
-        {
-            @Override
-            public void touchUp( InputEvent event, float x, float y, int pointer, int button )
-            {
-            	_game.getActionResolver().showToast("Buying item no.2");
-                _game.getInAppPurchaseSystem().requestPurchase(InAppPurchaseSystem.SKU_CONSUMABLE_2);
-            }
-        } );
-		
+				
 		_stage.addActor(_lInfo1);
 		_stage.addActor(_tbBuyItem1);
-		_stage.addActor(_tbBuyItem2);
 	}
 	
 	@Override

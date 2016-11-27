@@ -11,7 +11,6 @@ import com.badlogic.gdx.pay.PurchaseSystem;
 public class InAppPurchaseSystem 
 {
     public static final String SKU_CONSUMABLE_1 = "pl.com.berobasket.gdxpayissue.consumable1";
-    public static final String SKU_CONSUMABLE_2 = "pl.com.berobasket.gdxpayissue.consumable2";
     
 	public InAppPurchaseSystem() 
 	{   
@@ -41,7 +40,6 @@ public class InAppPurchaseSystem
 	{
 	    PurchaseManagerConfig purchaseManagerConfig = new PurchaseManagerConfig();
 	    purchaseManagerConfig.addOffer(new Offer().setType(OfferType.CONSUMABLE).setIdentifier(SKU_CONSUMABLE_1));
-	    purchaseManagerConfig.addOffer(new Offer().setType(OfferType.CONSUMABLE).setIdentifier(SKU_CONSUMABLE_2));
 	    
 		purchaseManagerConfig.addStoreParam(PurchaseManagerConfig.STORE_NAME_ANDROID_GOOGLE, "YourGoogleKeyHere");
 	   	
@@ -52,7 +50,6 @@ public class InAppPurchaseSystem
 	{
 	    PurchaseManagerConfig purchaseManagerConfig = new PurchaseManagerConfig();
 	    purchaseManagerConfig.addOffer(new Offer().setType(OfferType.CONSUMABLE).setIdentifier(SKU_CONSUMABLE_1));
-	    purchaseManagerConfig.addOffer(new Offer().setType(OfferType.CONSUMABLE).setIdentifier(SKU_CONSUMABLE_2));
 	    
 		purchaseManagerConfig.addStoreParam(PurchaseManagerConfig.STORE_NAME_IOS_APPLE, "NoKeyNeeded");
 	   	

@@ -73,7 +73,6 @@ project(":ios") {
         compile "com.badlogicgames.gdx:gdx-backend-robovm:$gdxVersion"
         compile "com.badlogicgames.gdx:gdx-platform:$gdxVersion:natives-ios"
         compile "com.badlogicgames.gdxpay:gdx-pay-iosrobovm-apple:$gdxPay"
-        compile "com.mobidevelop.robovm:robopods-google-mobile-ads-ios:2.2.1-SNAPSHOT"                
     }
 }
 
